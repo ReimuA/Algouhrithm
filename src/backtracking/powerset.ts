@@ -1,7 +1,7 @@
 // Assuming list does not contain duplicate
 function powerset(list: number[]): number[][] {
-    let results: number[][] = [];
-    let subset: number[] = [];
+    const results: number[][] = [];
+    const subset: number[] = [];
 
     const makeSubset = (i: number) => {
         if (!(i < list.length)) {
@@ -19,9 +19,9 @@ function powerset(list: number[]): number[][] {
     return results;
 }
 
-let demo = () => {
-    let set = [1, 2, 3, 4];
-    let res = powerset([1, 2, 3, 4]);
+const demo = () => {
+    const set = [1, 2, 3, 4];
+    const res = powerset([1, 2, 3, 4]);
 
     console.log(`Powerset of ${set}`);
     for (const l of res) console.log(l);
