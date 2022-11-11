@@ -1,3 +1,5 @@
+import { notEqual } from "assert";
+
 function canPlaceQueen(x: number, y: number, queens: { x: number, y: number }[]) {
     if (queens.length == 0) return true;
 
@@ -52,5 +54,8 @@ function nqueen(n: number): number {
     return res;
 }
 
-let result = nqueen(5)
-console.log(result)
+let demo = () => {
+    console.log("nqueen with 8: " + nqueen(8))
+}
+
+export default demo
