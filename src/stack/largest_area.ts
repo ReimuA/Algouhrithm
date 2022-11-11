@@ -31,3 +31,11 @@ function largestArea(list: number[]): number {
 
     return maxArea
 }
+
+const demo = () => {
+    const histogram = [6, 2, 5, 4, 5, 1, 6]
+
+    console.log(`Largest area in [${histogram}] is ${largestArea(histogram)}`)
+}
+
+export default demo;
