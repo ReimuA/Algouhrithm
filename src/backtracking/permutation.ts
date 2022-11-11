@@ -3,10 +3,14 @@ function permutation(list: number[]): number[][] {
 
     let result: number[][] = []
 
-    let lenght = list.length
+    const lenght = list.length
     for (let i = 0; i < lenght; i++) {
-        let current = list.shift()!;
-        let perm = permutation(list);
+        const current = list.shift();
+
+        // Should never happen
+        if (!current)
+            break;
+        const perm = permutation(list);
 
         for (let j = 0; j < perm.length; j++)
             perm[j].push(current)
@@ -21,8 +25,8 @@ function permutation(list: number[]): number[][] {
 }
 
 const demo = () => {
-    let set = [1, 2, 3, 4];
-    let res = permutation([1, 2, 3, 4]);
+    const set = [1, 2, 3, 4];
+    const res = permutation([1, 2, 3, 4]);
 
     console.log(`Permutation of ${set}`);
     for (const l of res) console.log(l);

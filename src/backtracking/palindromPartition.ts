@@ -1,5 +1,5 @@
 function isPalindrom(s: string) {
-    let len = Math.floor(s.length / 2);
+    const len = Math.floor(s.length / 2);
     for (let i = 0; i < len; i++)
         if (s[i] !== s[s.length - i - 1])
             return false;
@@ -17,7 +17,7 @@ function palindromPartitioning(s: string): string[][] {
         }
 
         for (let j = i; j < s.length; j++) {
-            let substring = s.substring(i, j + 1);
+            const substring = s.substring(i, j + 1);
 
             if (isPalindrom(substring)) {
                 parts.push(substring)
@@ -32,8 +32,8 @@ function palindromPartitioning(s: string): string[][] {
 }
 
 const demo = () => {
-    let value = "aabb"
-    let result = palindromPartitioning("aabb")
+    const value = "aabb"
+    const result = palindromPartitioning("aabb")
 
     console.log(`Palindrom partioning of ${value} :\n`)
     for (const l of result) console.log(l)

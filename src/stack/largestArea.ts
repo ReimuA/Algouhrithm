@@ -1,13 +1,13 @@
 function largestArea(list: number[]): number {
     let maxArea = 0;
-    let stack: { index: number, value: number }[] = [];
+    const stack: { index: number, value: number }[] = [];
 
     const stackTop = () => stack.length > 0 ? stack[stack.length - 1] : undefined;
 
     for (let i = 0; i < list.length; i++) {
         let index = i
-        let value = list[i];
         let top = stackTop()
+        const value = list[i];
 
         while (top && top.value > value) {
             const currentArea = top.value * (i - top.index)
