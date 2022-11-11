@@ -13,3 +13,13 @@ function fibonnaci(n: number): number {
 
     return result;
 }
+
+const demo = () => {
+    console.log("Fibonnaci with dynamic programming\n");
+
+    [...Array(10).keys()].forEach(e => {
+        console.log(`Fibonnaci(${e}) = ${fibonnaci(e)}`)
+    })
+}
+
+export default demo;
