@@ -1,5 +1,6 @@
 lib-cov
 *.js
+*.js.map
 
 pids
 logs
