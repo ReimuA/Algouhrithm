@@ -1,0 +1,23 @@
+{
+  "name": "algouhrithm",
+  "version": "1.0.0",
+  "description": "My own library of problem solving algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReimuA/Algouhrithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReimuA/Algouhrithm/issues"
+  },
+  "homepage": "https://github.com/ReimuA/Algouhrithm#readme",
+  "dependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.8.4"
+  }
+}
