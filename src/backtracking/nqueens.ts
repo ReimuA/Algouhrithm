@@ -17,14 +17,6 @@ function canPlaceQueen(x: number, y: number, queens: { x: number; y: number }[])
     return res;
 }
 
-function dumpGrid(grid: number[][]) {
-    for (const line of grid) {
-        console.log(line.join(' '));
-    }
-
-    console.log(' ');
-}
-
 function nqueen(n: number): number {
     let res = 0;
     let queensPos: { x: number; y: number }[] = [];
