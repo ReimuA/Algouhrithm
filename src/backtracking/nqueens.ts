@@ -3,11 +3,11 @@ import { notEqual } from 'assert';
 function canPlaceQueen(x: number, y: number, queens: { x: number; y: number }[]) {
     if (queens.length == 0) return true;
 
-    let res = !queens.some((q) => {
+    const res = !queens.some((q) => {
         if (x == q.x || y == q.y) return true;
 
-        let dcol = x - q.x;
-        let drow = y - q.y;
+        const dcol = x - q.x;
+        const drow = y - q.y;
 
         if (dcol == drow || dcol == -drow) return true;
 
@@ -19,8 +19,8 @@ function canPlaceQueen(x: number, y: number, queens: { x: number; y: number }[])
 
 function nqueen(n: number): number {
     let res = 0;
-    let queensPos: { x: number; y: number }[] = [];
-    let grid = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
+    const queensPos: { x: number; y: number }[] = [];
+    const grid = Array.from({ length: n }, () => Array.from({ length: n }, () => 0));
 
     const placeQueen = (i: number) => {
         if (i == n) {
@@ -43,7 +43,7 @@ function nqueen(n: number): number {
     return res;
 }
 
-let demo = () => {
+const demo = () => {
     console.log('nqueen with 8: ' + nqueen(8));
 };
 
