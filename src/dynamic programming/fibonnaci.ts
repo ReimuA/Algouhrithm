@@ -15,11 +15,11 @@ function fibonnaci(n: number): number {
 }
 
 const demo = () => {
-    console.log("Fibonnaci with dynamic programming\n");
+    console.log('Fibonnaci with dynamic programming\n');
 
-    [...Array(10).keys()].forEach(e => {
-        console.log(`Fibonnaci(${e}) = ${fibonnaci(e)}`)
-    })
-}
+    [...Array(10).keys()].forEach((e) => {
+        console.log(`Fibonnaci(${e}) = ${fibonnaci(e)}`);
+    });
+};
 
 export default demo;
