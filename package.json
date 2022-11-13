@@ -19,6 +19,7 @@
   "dependencies": {
     "@types/math3d": "^0.2.3",
     "@types/node": "^18.11.9",
+    "jimp": "^0.16.2",
     "math3d": "^0.2.2"
   },
   "devDependencies": {
