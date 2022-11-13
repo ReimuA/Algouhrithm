@@ -38,10 +38,6 @@ export async function raymarch(objects: RaymarchObject[]) {
                 const rayPos = new Vector3(rayDirection.x * depth, rayDirection.y * depth, rayDirection.z * depth);
                 const dist = objects[0].sdf(rayPos);
 
-                if (ray.x == 0 && ray.y == 0) {
-                    console.log('ouhouh');
-                }
-
                 if (dist <= minDistance) break;
 
                 depth += dist;
