@@ -12,7 +12,7 @@ function createImage(width: number, height: number): Promise<Jimp> {
     return promise;
 }
 
-async function exportBufferToPng(width: number, height: number, buffer: Color[]) {
+export async function exportBufferToPng(width: number, height: number, buffer: Color[]) {
     const img = await createImage(width, height);
 
     for (let i = 0; i < width * height; i++) {
