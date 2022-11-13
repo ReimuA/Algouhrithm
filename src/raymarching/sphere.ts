@@ -16,11 +16,12 @@ class Sphere implements RaymarchObject {
 }
 
 const demo = () => {
-    const sphere = new Sphere(new Vector3(0, 0, 75), 30);
+    const sphere = new Sphere(new Vector3(0, 0, 100), 70);
 
-    console.log(`Rendering sphere at ${sphere.pos} with size ${sphere.size}}, check output.png`);
+    console.log(`Rendering sphere at ${sphere.pos} with size ${sphere.size}}`);
 
     raymarch([sphere]);
+    console.log('check output.png');
 };
 
 export default demo;

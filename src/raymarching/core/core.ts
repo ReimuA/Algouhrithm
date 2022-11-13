@@ -8,31 +8,39 @@ export type Color = {
     a: number;
 };
 
+export type ViewPort = {
+    eye: Vector3;
+    pos: Vector3;
+    width: number;
+    heigth: number;
+};
+
 export interface RaymarchObject {
     sdf(otherPos: Vector3): number;
 }
 
 export async function raymarch(objects: RaymarchObject[]) {
-    const width = 512;
-    const height = 512;
-    const eye = new Vector3(0, 0, -100);
-    const viewPort = { eye, pos: new Vector3(0), width, height };
-    const minDistance = 0.001;
+    const viewPort = {
+        width: 512,
+        height: 512,
+        pos: new Vector3(0),
+        eye: new Vector3(0, 0, -100)
+    };
+
+    const minDistance = 0.000001;
     const maxDepth = 1000;
     const maxStep = 1000;
     const buffer: Color[] = [];
 
-    for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-            const ray = new Vector3(
-                Math.floor(x - viewPort.width / 2 - eye.x),
-                Math.floor(y - viewPort.height / 2 - eye.y),
-                viewPort.pos.y - eye.z
-            );
+    const light = new Vector3(10, 0, 50);
+
+    for (let y = -Math.floor(viewPort.height / 2); y < viewPort.height / 2; y++) {
+        for (let x = -Math.floor(viewPort.width / 2); x < viewPort.width / 2; x++) {
+            const ray = new Vector3(x - viewPort.eye.x, y - viewPort.eye.y, viewPort.pos.y - viewPort.eye.z);
             const rayDirection = ray.normalize();
 
-            let depth = 0;
             let step = 0;
+            let depth = 0;
 
             while (step < maxStep && depth < maxDepth) {
                 const rayPos = new Vector3(rayDirection.x * depth, rayDirection.y * depth, rayDirection.z * depth);
@@ -48,5 +56,5 @@ export async function raymarch(objects: RaymarchObject[]) {
             else buffer.push({ r: 255, g: 0, b: 0, a: 255 });
         }
     }
-    await exportBufferToPng(width, height, buffer);
+    await exportBufferToPng(viewPort.width, viewPort.height, buffer);
 }
