@@ -33,7 +33,7 @@ export async function raymarch(objects: RaymarchObject[]) {
     const maxStep = 1000;
     const buffer: Color[] = [];
 
-    const light = new Vector3(10, 0, 50);
+    const light = new Vector3(-3, 2, 1).normalize();
 
     for (let y = -Math.floor(viewPort.height / 2); y < viewPort.height / 2; y++) {
         for (let x = -Math.floor(viewPort.width / 2); x < viewPort.width / 2; x++) {
@@ -50,10 +50,13 @@ export async function raymarch(objects: RaymarchObject[]) {
                 if (dist <= minDistance) {
                     const normal = objects[0].normal(rayPos).normalize();
 
+                    const cos = normal.dot(light.mulScalar(-1));
+                    const intensity = Math.max(0, cos);
+
                     buffer.push({
-                        r: Math.abs(normal.x * 255),
-                        g: Math.abs(normal.y * 255),
-                        b: Math.abs(normal.z * 255),
+                        r: 255 * intensity,
+                        g: 0,
+                        b: 0,
                         a: 255
                     });
                     break;
